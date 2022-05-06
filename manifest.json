@@ -1,0 +1,19 @@
+{
+  "name": "BrowserSemgrep",
+  "version": "1.0.0",
+  "description": "Semgrep for the browser.",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings":{
+      "gecko":{
+         "id":"browsersemgrep@ndevtk"
+      }
+   },
+  "developer": {
+      "name": "NDevTK",
+      "url": "https://github.com/NDevTK/BrowserSemgrep"
+  },
+  "permissions": ["<all_urls>"],
+  "manifest_version": 2
+}
