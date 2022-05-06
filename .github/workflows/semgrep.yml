@@ -1,0 +1,28 @@
+name: Semgrep
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+    - uses: actions/setup-python@v3
+    - name: Getting semgrep
+      run: |
+        pip install semgrep
+    - name: Commit files
+      run: |
+        git pull
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Semgrep" -a
+    - name: Push changes
+      uses: NDevTK/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
